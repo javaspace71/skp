@@ -1,4 +1,4 @@
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890! #@&*^+'
 key = 0
 original_message = ''
 secretalphabet = ''
@@ -10,7 +10,7 @@ def prompt_encrypt():
   print("you can encrypt your message now")
   global original_message
   original_message = input('Please enter a message: ')
-  key = input('Enter a key (1-26): ')
+  key = input('Enter a key (1-70): ')
   key = int(key)
   print("\n")
   print(alphabet)
@@ -20,7 +20,7 @@ def secretalpha(key):
   global secretalphabet
   for character in alphabet:
     position = alphabet.find(character)
-    newPosition = (position + key) % 26
+    newPosition = (position + key) % 70
     secretcharacter = alphabet[newPosition]
     secretalphabet = secretalphabet + secretcharacter
   print(secretalphabet)
@@ -32,7 +32,7 @@ def encrypt(message, key):
   for character in message:
     if character in alphabet:
       position = alphabet.find(character)
-      newPosition = (position + key) % 26
+      newPosition = (position + key) % 70
       newCharacter = alphabet[newPosition]
       newMessage = newMessage + newCharacter
     else:
